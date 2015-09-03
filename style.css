@@ -5,7 +5,7 @@ body {
 .wrapper {
 	background: rgba(255, 255, 255, 0.8);
 	width: 80%;
-	height: 100vh;
+	height: 98vh;
 	margin: 0px auto;
 }
 
@@ -14,6 +14,7 @@ input {
 }
 
 .header {
+	color: black;
 	max-width: 100%;
 	min-width: 20%;
 	max-height: 50%;
@@ -56,4 +57,7 @@ input {
 	padding-left: 20px;
 	float: right;
 	width: 50%;
+}
+#webcam {
+	max-width: 65%;
 }

@@ -33,6 +33,7 @@ function goClicked(location, e) {
       location = state + "/" + city; 
     }
   }
+
   var currentPromise = $.ajax("http://api.wunderground.com/api/a741b0d8e5cdb448/conditions/q/" + location + ".json");
   currentPromise.success(function(data) {
     var F = data.current_observation.heat_index_f;
@@ -60,19 +61,22 @@ function goClicked(location, e) {
 
   var forecastPromise = $.ajax("http://api.wunderground.com/api/a741b0d8e5cdb448/forecast/q/" + location + ".json");
   forecastPromise.success(function(data) {
-    console.log(data);
-    $('#forecast').empty();
-    var forecastArr = data.forecast.simpleforecast.forecastday
+    var forecastArr = data.forecast.simpleforecast.forecastday;
+    var divArr = [];
     forecastArr.forEach( function(element,index,array) {
     var icon = array[index].icon_url;
     var date = array[index].date.weekday;
     var high = array[index].high.fahrenheit;
     var low = array[index].low.fahrenheit;
     var $divID = $("<div id=" +  date + ">");
-    $('#forecast').append($divID);
     $divID.append("<img src='" + icon + "'>").append('<span>' + date + '</span>').append('<span> High: ' + high + ' ° F</span>').append('<span> Low: ' + low + '° F</span>');
-
-    console.log('once');
+    divArr.push($divID);
+  })
+    $('#forecast').empty().append(divArr);
+      var webcamPromise = $.ajax("http://api.wunderground.com/api/a741b0d8e5cdb448/webcams/q/" + location + ".json");
+      webcamPromise.success(function(data) {
+      var image_url = data.webcams[0].CURRENTIMAGEURL;
+      $('#forecast').append('<span>Closest webcam:</span><br>').append("<img src='" + image_url + "' id='webcam'>");
   })
   })
 
