@@ -46,11 +46,12 @@ function goClicked(location, e) {
     if ( F !== 'NA'){
       $('.dispTempF').text(F + '° Farenheight').css('background','white');
     } else {
-      $('.dispTempF').text(data.current_observation.feelslike_f + '° Farenheight').css('background','white');
+      $('.dispTempF').text(data.current_observation.feelslike_f + '° Fahrenheit').css('background','white');
     }
       $('.icon').empty().prepend("<img src='" + icon_url + "'>");
       $('#location').text(city + ',' + state);
-      var $radar = $('.radar');
+      var $radar = $('.radar')
+      $radar.empty();
       $radar.append("<img src='http://api.wunderground.com/api/a741b0d8e5cdb448/animatedradar/q/" + state + '/' + city + ".gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50' id='radar'>" );
   });
   currentPromise.fail(function(error) {
@@ -60,6 +61,19 @@ function goClicked(location, e) {
   var forecastPromise = $.ajax("http://api.wunderground.com/api/a741b0d8e5cdb448/forecast/q/" + location + ".json");
   forecastPromise.success(function(data) {
     console.log(data);
+    $('#forecast').empty();
+    var forecastArr = data.forecast.simpleforecast.forecastday
+    forecastArr.forEach( function(element,index,array) {
+    var icon = array[index].icon_url;
+    var date = array[index].date.weekday;
+    var high = array[index].high.fahrenheit;
+    var low = array[index].low.fahrenheit;
+    var $divID = $("<div id=" +  date + ">");
+    $('#forecast').append($divID);
+    $divID.append("<img src='" + icon + "'>").append('<span>' + date + '</span>').append('<span> High: ' + high + ' ° F</span>').append('<span> Low: ' + low + '° F</span>');
+
+    console.log('once');
+  })
   })
 
 }

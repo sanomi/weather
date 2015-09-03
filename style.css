@@ -5,7 +5,7 @@ body {
 .wrapper {
 	background: rgba(255, 255, 255, 0.8);
 	width: 80%;
-	height: 97.3vh;
+	height: 100vh;
 	margin: 0px auto;
 }
 
@@ -49,6 +49,11 @@ input {
 #radar {
 	  border: 5px solid black;
     display: block;
-    max-width: 100%;
-    margin: 0px auto;
+    width: 50%;
+    float: left;
+}
+#forecast {
+	padding-left: 20px;
+	float: right;
+	width: 50%;
 }
