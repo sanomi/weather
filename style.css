@@ -1,0 +1,25 @@
+.header {
+	max-width: 600px;
+	margin: 20px auto;
+}
+.row {
+	max-width: 100%;
+	min-width: 20%;
+	height: 300px;
+	margin: 0px auto;
+	background-size: cover; 
+}
+.sunny {
+	background-image: url('https://static.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg'); 
+}
+.question {
+	background-image: url('http://3.bp.blogspot.com/-HLVjZgs3wM8/VcmJal9VahI/AAAAAAAAg-k/KL2MjKIhC7c/s1600/cloud-question-mark-710x345.jpg'); 
+}
+.result-container {
+	max-width: 600px;
+	margin: 20px auto;
+}
+.dispTempF {
+	padding: 5px;
+	border-radius: 5%;
+}
