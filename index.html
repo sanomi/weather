@@ -7,20 +7,23 @@
 	<link rel='stylesheet' href='style.css'>
 </head>
 <body>
-	
-	<div class='row question'>
+	<div class="wrapper">
 		<div class="header">
-		<h1>Forecast Finder</h1>
-		<input class = "location" type="text" placeholder="Zipcode or City, State "></input>
-		<button id="go" class="btn-default">Search</button>
-	</div>
-		<div class="result-container">
-			<div id = 'location'></div>
-			<span class="dispTempF"></span>
-			<span class="icon"></span>
+			<h1>Forecast Finder</h1>
+			<input class = "location" type="text" placeholder="Zipcode or City, State "></input>
+			<button id="go" class="btn-default">Search</button>
+		</div>
+		<div class='row currentInfo'>
+			<div class="result-container">
+				<div id = 'location'></div>
+				<span class="dispTempF"></span>
+				<span class="icon"></span>
+			</div>
+		</div>
+		<div class="radar">
+			
 		</div>
 	</div>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="main.js"></script>

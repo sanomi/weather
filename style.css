@@ -1,25 +1,54 @@
-.header {
-	max-width: 600px;
-	margin: 20px auto;
+body {
+	background-image: url('https://geoguessr.com/images/0bb0c2891445bf8edd24fce6f179d125.jpg');
+	background-size: cover;
 }
-.row {
+.wrapper {
+	background: rgba(255, 255, 255, 0.8);
+	width: 80%;
+	height: 97.3vh;
+	margin: 0px auto;
+}
+
+input {
+	width: 140px;
+}
+
+.header {
 	max-width: 100%;
 	min-width: 20%;
-	height: 300px;
+	max-height: 50%;
+	margin: 20px auto 0px;
+	background-image: url('http://3.bp.blogspot.com/-HLVjZgs3wM8/VcmJal9VahI/AAAAAAAAg-k/KL2MjKIhC7c/s1600/cloud-question-mark-710x345.jpg');
+	background-size: cover; 
+	border: ridge white 5px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.row {
+	font-size: 1em;
+	padding-top: 50px;
+	max-width: 100%;
+	min-width: 20%;
+	height: 180px;
 	margin: 0px auto;
 	background-size: cover; 
+	border: ridge white 5px;
 }
 .sunny {
 	background-image: url('https://static.pexels.com/photos/3768/sky-sunny-clouds-cloudy.jpg'); 
 }
-.question {
-	background-image: url('http://3.bp.blogspot.com/-HLVjZgs3wM8/VcmJal9VahI/AAAAAAAAg-k/KL2MjKIhC7c/s1600/cloud-question-mark-710x345.jpg'); 
-}
+
 .result-container {
 	max-width: 600px;
-	margin: 20px auto;
+	margin: 0px auto;
 }
 .dispTempF {
 	padding: 5px;
 	border-radius: 5%;
+}
+#radar {
+	  border: 5px solid black;
+    display: block;
+    max-width: 100%;
+    margin: 0px auto;
 }
