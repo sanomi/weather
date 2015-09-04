@@ -42,18 +42,27 @@ function goClicked(location, e) {
     city = data.current_observation.display_location.city;
     state = data.current_observation.display_location.state;
     if (icon = 'clear') {
-    $('.currentInfo').addClass('sunny');
+    $('body').addClass('sunny');
     }
+    $('.currentInfo').empty();
+    var $currentInfoArr = [];
     if ( F !== 'NA'){
-      $('.dispTempF').text(F + '° Farenheight').css('background','white');
+      $currentInfoArr.push(F + '° Farenheight');
     } else {
-      $('.dispTempF').text(data.current_observation.feelslike_f + '° Fahrenheit').css('background','white');
+      $currentInfoArr.push("<div>" + data.current_observation.feelslike_f + '° Fahrenheit</div>');
     }
-      $('.icon').empty().prepend("<img src='" + icon_url + "'>");
-      $('#location').text(city + ',' + state);
+    $currentInfoArr.push("<img src='" + icon_url + "'>");
+    $currentInfoArr.push("<div>" + city + ',' + state + "</div>");
+    $('.currentInfo').append($currentInfoArr);
+
+    console.log($currentInfoArr);
+    console.log($('.currentInfo'));
+
       var $radar = $('.radar')
       $radar.empty();
       $radar.append("<img src='http://api.wunderground.com/api/a741b0d8e5cdb448/animatedradar/q/" + state + '/' + city + ".gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50' id='radar'>" );
+  
+
   });
   currentPromise.fail(function(error) {
     console.log('error:', error);
